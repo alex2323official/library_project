@@ -28,13 +28,13 @@ const booksContainerDisplay = document.querySelector("#books-container");
 let newBookContainerDiv = document.createElement("div");
 
 let authorSpan = document.createElement("span");
-authorSpan.textContent = `${myLibrary[0].author}`;
+authorSpan.textContent = `Author: ${myLibrary[0].author}`;
 
 let titleSpan = document.createElement("span");
-titleSpan.textContent = `${myLibrary[0].title}`;
+titleSpan.textContent = `Title: ${myLibrary[0].title}`;
 
 let numberOfPagesSpan = document.createElement("span");
-numberOfPagesSpan.textContent = `${myLibrary[0].numberOfPages}`;
+numberOfPagesSpan.textContent = `Pages: ${myLibrary[0].numberOfPages}`;
 
 newBookContainerDiv.appendChild(authorSpan);
 newBookContainerDiv.appendChild(titleSpan);
