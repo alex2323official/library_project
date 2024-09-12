@@ -30,6 +30,13 @@ const displayBooksInContainer = function () {
     btnToRemoveBook.setAttribute("data-index", index);
     newBookContainerDiv.appendChild(btnToRemoveBook);
 
+    // Create btn to switch read status
+    let btnToSwitchReadStatus = document.createElement("button");
+    btnToSwitchReadStatus.textContent = "Test";
+    // add data-atribute = to array index of an object
+    btnToSwitchReadStatus.setAttribute("data-number", index);
+    newBookContainerDiv.appendChild(btnToSwitchReadStatus);
+
     booksContainerDisplay.appendChild(newBookContainerDiv);
   });
 };
@@ -67,11 +74,13 @@ booksContainerDisplay.addEventListener("click", (element) => {
   // Prevent sending form with pushed btn
   element.preventDefault();
 
-  // take index of book to delete
-  const bookIndexInArray = element.target.dataset.index;
+  if (element.target.textContent == "Delete Book") {
+    // take index of book to delete
+    const bookIndexInArray = element.target.dataset.index;
 
-  // delete book from aray
-  myLibrary.splice(bookIndexInArray, 1);
+    // delete book from aray
+    myLibrary.splice(bookIndexInArray, 1);
 
-  displayBooksInContainer();
+    displayBooksInContainer();
+  }
 });
