@@ -27,7 +27,7 @@ const displayBooksInContainer = function () {
     let btnToRemoveBook = document.createElement("button");
     btnToRemoveBook.textContent = "Delete Book";
     // add data-atribute = to array index of an object
-    btnToRemoveBook.setAttribute("indexOfBookInArray", index);
+    btnToRemoveBook.setAttribute("data-index", index);
     newBookContainerDiv.appendChild(btnToRemoveBook);
 
     booksContainerDisplay.appendChild(newBookContainerDiv);
@@ -64,8 +64,14 @@ btn.addEventListener("click", (element) => {
 
 // Event Listener for Delete Book BTNS
 booksContainerDisplay.addEventListener("click", (element) => {
-  console.log(element);
-
   // Prevent sending form with pushed btn
   element.preventDefault();
+
+  // take index of book to delete
+  const bookIndexInArray = element.target.dataset.index;
+
+  // delete book from aray
+  myLibrary.splice(bookIndexInArray, 1);
+
+  displayBooksInContainer();
 });
