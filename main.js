@@ -19,25 +19,28 @@ const opowiesciMasla = new Book("Maslo", "Opowiesci masla", 300);
 myLibrary.push(hobbit);
 myLibrary.push(opowiesciMasla);
 
-console.table(myLibrary);
-
 // Display Books in Container
 const booksContainerDisplay = document.querySelector("#books-container");
 
-// Create new html element with book
-let newBookContainerDiv = document.createElement("div");
+// Loop trough array and display every book
+myLibrary.forEach((book) => {
+  console.log(book);
 
-let authorSpan = document.createElement("span");
-authorSpan.textContent = `Author: ${myLibrary[0].author}`;
+  // Create new html element with book
+  let newBookContainerDiv = document.createElement("div");
 
-let titleSpan = document.createElement("span");
-titleSpan.textContent = `Title: ${myLibrary[0].title}`;
+  let authorSpan = document.createElement("span");
+  authorSpan.textContent = `Author: ${book.author}`;
 
-let numberOfPagesSpan = document.createElement("span");
-numberOfPagesSpan.textContent = `Pages: ${myLibrary[0].numberOfPages}`;
+  let titleSpan = document.createElement("span");
+  titleSpan.textContent = `Title: ${book.title}`;
 
-newBookContainerDiv.appendChild(authorSpan);
-newBookContainerDiv.appendChild(titleSpan);
-newBookContainerDiv.appendChild(numberOfPagesSpan);
+  let numberOfPagesSpan = document.createElement("span");
+  numberOfPagesSpan.textContent = `Pages: ${book.numberOfPages}`;
 
-booksContainerDisplay.appendChild(newBookContainerDiv);
+  newBookContainerDiv.appendChild(authorSpan);
+  newBookContainerDiv.appendChild(titleSpan);
+  newBookContainerDiv.appendChild(numberOfPagesSpan);
+
+  booksContainerDisplay.appendChild(newBookContainerDiv);
+});
