@@ -43,9 +43,9 @@ function Book(author, title, numberOfPages) {
 
 displayBooksInContainer();
 
-btn.addEventListener("click", (event) => {
+btn.addEventListener("click", (element) => {
   // Prevent sending form with pushed btn
-  event.preventDefault();
+  element.preventDefault();
 
   // Take user input data from form (book)
   const formAuthor = document.querySelector("#author").value;
@@ -59,5 +59,13 @@ btn.addEventListener("click", (event) => {
 
   displayBooksInContainer();
 
-  console.log(myLibrary);
+  // console.log(myLibrary);
+});
+
+// Event Listener for Delete Book BTNS
+booksContainerDisplay.addEventListener("click", (element) => {
+  console.log(element);
+
+  // Prevent sending form with pushed btn
+  element.preventDefault();
 });
