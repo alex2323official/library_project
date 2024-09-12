@@ -8,6 +8,24 @@
     <link rel="shortcut icon" href="#" type="image/x-icon" />
   </head>
   <body>
+    <div id="displaybook"></div>
+
+    <!-- Form without with preventDefault() for taking js input from user -->
+    <form action="get">
+      <div class="input-row">
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author" />
+      </div>
+      <div class="input-row">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" />
+      </div>
+      <div class="input-row">
+        <label for="pages">How much pages:</label>
+        <input type="number" name="pages" id="pages" />
+      </div>
+    </form>
+
     <!-- Load JS and the end of body -->
     <script src="./main.js"></script>
   </body>
