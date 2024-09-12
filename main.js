@@ -52,9 +52,30 @@ function Book(author, title, numberOfPages, status) {
 
 displayBooksInContainer();
 
+let itteration = 0;
+let isOpen = false;
+
 btn.addEventListener("click", (element) => {
   // Prevent sending form with pushed btn
   element.preventDefault();
+
+  const form = document.querySelectorAll(".input-row");
+
+  itteration++;
+  if (itteration == 3) {
+    itteration = 1;
+  }
+
+  console.log(itteration);
+
+  // display form
+  if (!isOpen && itteration == 1) {
+    form.forEach((element) => {
+      element.style.display = "flex";
+    });
+    isOpen = true;
+    console.log(isOpen);
+  }
 
   // Take user input data from form (book)
   const formAuthor = document.querySelector("#author").value;
@@ -75,6 +96,15 @@ btn.addEventListener("click", (element) => {
   myLibrary.push(createdNewBook);
 
   displayBooksInContainer();
+
+  //  hide form
+  if (isOpen && itteration == 2) {
+    form.forEach((element) => {
+      element.style.display = "none";
+    });
+    isOpen = false;
+    console.log(isOpen);
+  }
 });
 
 // Event Listener for Delete Book BTNS
