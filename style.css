@@ -8,3 +8,12 @@ form {
   display: flex;
   flex-direction: column;
 }
+
+button {
+  font-weight: 900;
+}
+
+/* Display books container */
+.books-container {
+  background-color: antiquewhite;
+}
