@@ -5,6 +5,9 @@ const booksContainerDisplay = document.querySelector("#books-container");
 
 // Loop trough array and display every book
 const displayBooksInContainer = function () {
+  //  remove all elements from DOM before rendering them again
+  booksContainerDisplay.innerHTML = "";
+
   myLibrary.forEach((book) => {
     // Create new html element with book
     let newBookContainerDiv = document.createElement("div");
@@ -57,4 +60,8 @@ btn.addEventListener("click", (event) => {
   const createdNewBook = new Book(formAuthor, formTitle, formPages);
 
   myLibrary.push(createdNewBook);
+
+  // Remove all elements from DOM before uploading new
+
+  displayBooksInContainer();
 });
