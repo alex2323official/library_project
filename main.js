@@ -6,7 +6,7 @@ const displayBooksInContainer = function () {
   //  remove all elements from DOM before rendering them again
   booksContainerDisplay.innerHTML = "";
 
-  myLibrary.forEach((book) => {
+  myLibrary.forEach((book, index) => {
     // Create new html element with book
     let newBookContainerDiv = document.createElement("div");
 
@@ -22,6 +22,13 @@ const displayBooksInContainer = function () {
     newBookContainerDiv.appendChild(authorSpan);
     newBookContainerDiv.appendChild(titleSpan);
     newBookContainerDiv.appendChild(numberOfPagesSpan);
+
+    // Create button to remove book and add it to book container
+    let btnToRemoveBook = document.createElement("button");
+    btnToRemoveBook.textContent = "Delete Book";
+    // add data-atribute = to array index of an object
+    btnToRemoveBook.setAttribute("indexOfBookInArray", index);
+    newBookContainerDiv.appendChild(btnToRemoveBook);
 
     booksContainerDisplay.appendChild(newBookContainerDiv);
   });
@@ -51,4 +58,6 @@ btn.addEventListener("click", (event) => {
   myLibrary.push(createdNewBook);
 
   displayBooksInContainer();
+
+  console.log(myLibrary);
 });
