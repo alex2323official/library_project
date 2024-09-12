@@ -13,18 +13,28 @@ function addBookToLibrary() {
   // do stuff here
 }
 
+btn.addEventListener("click", (event) => {
+  // Prevent sending form with pushed btn
+  event.preventDefault();
+
+  // Take user input data from form (book)
+  const formAuthor = document.querySelector("#author").value;
+  const formTitle = document.querySelector("#title").value;
+  const formPages = document.querySelector("#pages").value;
+
+  // use constructor here to push data to item
+  const createdNewBook = new Book(formAuthor, formTitle, formPages);
+
+  myLibrary.push(createdNewBook);
+
+  console.log(createdNewBook);
+  console.table(myLibrary);
+});
+
 const hobbit = new Book("Tolkien", "Hobbit", 300);
 const opowiesciMasla = new Book("Maslo", "Opowiesci masla", 300);
-const hobbit2 = new Book("Tolkien", "Hobbit", 300);
-const hobbit3 = new Book("Tolkien", "Hobbit", 300);
-const hobbit4 = new Book("Tolkien", "Hobbit", 300);
-const hobbit5 = new Book("Tolkien", "Hobbit", 300);
 
 myLibrary.push(hobbit);
-myLibrary.push(hobbit2);
-myLibrary.push(hobbit3);
-myLibrary.push(hobbit4);
-myLibrary.push(hobbit5);
 myLibrary.push(opowiesciMasla);
 
 // Display Books in Container
