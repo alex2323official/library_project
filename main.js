@@ -30,9 +30,10 @@ const displayBooksInContainer = function () {
     btnToRemoveBook.setAttribute("data-index", index);
     newBookContainerDiv.appendChild(btnToRemoveBook);
 
+    // @@@@ TODO @@@@
     // Create btn to switch read status
     let btnToSwitchReadStatus = document.createElement("button");
-    btnToSwitchReadStatus.textContent = "Test";
+    btnToSwitchReadStatus.textContent = `${book.status}`;
     // add data-atribute = to array index of an object
     btnToSwitchReadStatus.setAttribute("data-number", index);
     newBookContainerDiv.appendChild(btnToSwitchReadStatus);
@@ -41,11 +42,12 @@ const displayBooksInContainer = function () {
   });
 };
 
-function Book(author, title, numberOfPages) {
+function Book(author, title, numberOfPages, status) {
   // the constructor...
   this.author = author;
   this.title = title;
   this.numberOfPages = numberOfPages;
+  this.status = status;
 }
 
 displayBooksInContainer();
@@ -58,15 +60,23 @@ btn.addEventListener("click", (element) => {
   const formAuthor = document.querySelector("#author").value;
   const formTitle = document.querySelector("#title").value;
   const formPages = document.querySelector("#pages").value;
+  const formReadStatus = document.querySelector(
+    'input[name="status"]:checked'
+  ).value;
 
   // use constructor here to push data to item
-  const createdNewBook = new Book(formAuthor, formTitle, formPages);
+  const createdNewBook = new Book(
+    formAuthor,
+    formTitle,
+    formPages,
+    formReadStatus
+  );
 
   myLibrary.push(createdNewBook);
 
   displayBooksInContainer();
 
-  // console.log(myLibrary);
+  console.log(myLibrary);
 });
 
 // Event Listener for Delete Book BTNS
