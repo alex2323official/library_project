@@ -74,28 +74,7 @@ btn.addEventListener("click", (element) => {
       element.style.display = "flex";
     });
     isOpen = true;
-    console.log(isOpen);
   }
-
-  // Take user input data from form (book)
-  const formAuthor = document.querySelector("#author").value;
-  const formTitle = document.querySelector("#title").value;
-  const formPages = document.querySelector("#pages").value;
-  const formReadStatus = document.querySelector(
-    'input[name="status"]:checked'
-  ).value;
-
-  // use constructor here to push data to item
-  const createdNewBook = new Book(
-    formAuthor,
-    formTitle,
-    formPages,
-    formReadStatus
-  );
-
-  myLibrary.push(createdNewBook);
-
-  displayBooksInContainer();
 
   //  hide form
   if (isOpen && itteration == 2) {
@@ -104,6 +83,26 @@ btn.addEventListener("click", (element) => {
     });
     isOpen = false;
     console.log(isOpen);
+
+    // Take user input data from form (book)
+    const formAuthor = document.querySelector("#author").value;
+    const formTitle = document.querySelector("#title").value;
+    const formPages = document.querySelector("#pages").value;
+    const formReadStatus = document.querySelector(
+      'input[name="status"]:checked'
+    ).value;
+
+    // use constructor here to push data to item
+    const createdNewBook = new Book(
+      formAuthor,
+      formTitle,
+      formPages,
+      formReadStatus
+    );
+
+    myLibrary.push(createdNewBook);
+
+    displayBooksInContainer();
   }
 });
 
