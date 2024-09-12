@@ -75,8 +75,6 @@ btn.addEventListener("click", (element) => {
   myLibrary.push(createdNewBook);
 
   displayBooksInContainer();
-
-  console.log(myLibrary);
 });
 
 // Event Listener for Delete Book BTNS
@@ -84,6 +82,7 @@ booksContainerDisplay.addEventListener("click", (element) => {
   // Prevent sending form with pushed btn
   element.preventDefault();
 
+  // Delete Book behaviour
   if (element.target.textContent == "Delete Book") {
     // take index of book to delete
     const bookIndexInArray = element.target.dataset.index;
@@ -92,5 +91,21 @@ booksContainerDisplay.addEventListener("click", (element) => {
     myLibrary.splice(bookIndexInArray, 1);
 
     displayBooksInContainer();
+  }
+
+  if (element.target.textContent != "Delete Book") {
+    // take index of book to delete
+    const statusIndexInArray = element.target.dataset.number;
+
+    console.log(statusIndexInArray);
+
+    // switch status of read in book
+    if (myLibrary[statusIndexInArray].status == "noread") {
+      myLibrary[statusIndexInArray].status = "read";
+      displayBooksInContainer();
+    } else {
+      myLibrary[statusIndexInArray].status = "noread";
+      displayBooksInContainer();
+    }
   }
 });
