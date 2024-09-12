@@ -1,9 +1,7 @@
 const myLibrary = [];
-
-// Display Books in Container
+const btn = document.querySelector("#button");
 const booksContainerDisplay = document.querySelector("#books-container");
 
-// Loop trough array and display every book
 const displayBooksInContainer = function () {
   //  remove all elements from DOM before rendering them again
   booksContainerDisplay.innerHTML = "";
@@ -29,15 +27,6 @@ const displayBooksInContainer = function () {
   });
 };
 
-// Add some testing data
-const hobbit = new Book("Tolkien", "Hobbit", 300);
-const opowiesciMasla = new Book("Maslo", "Opowiesci masla", 300);
-
-myLibrary.push(hobbit);
-myLibrary.push(opowiesciMasla);
-
-const btn = document.querySelector("#button");
-
 function Book(author, title, numberOfPages) {
   // the constructor...
   this.author = author;
@@ -60,8 +49,6 @@ btn.addEventListener("click", (event) => {
   const createdNewBook = new Book(formAuthor, formTitle, formPages);
 
   myLibrary.push(createdNewBook);
-
-  // Remove all elements from DOM before uploading new
 
   displayBooksInContainer();
 });
